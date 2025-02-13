@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorTrigger : MonoBehaviour
 {
@@ -10,6 +11,16 @@ public class DoorTrigger : MonoBehaviour
     public int miniGameType;
 
     private System.Random random;
+
+    void Awake()
+    {
+        if(PlayerDataManager.Instance.playerData.AvalibleDoors.Contains(doorNum)){
+            gameObject.SetActive(true);
+        }
+        else{
+            gameObject.SetActive(false);
+        }
+    }
 
     private void Start()
     {
@@ -47,11 +58,12 @@ public class DoorTrigger : MonoBehaviour
                     gameObject.SetActive(false);
 
                     //СЮДА ДОБАВЛЯТЬ ПЕРЕХОД НА СЦЕНУ
-
+                    
                     Debug.Log("Оставшиеся двери");
                     for(int i =0 ;i<PlayerDataManager.Instance.playerData.AvalibleDoors.Count;i++){
                         Debug.Log(PlayerDataManager.Instance.playerData.AvalibleDoors[i]);
                     }
+                    SceneManager.LoadScene(miniGameType);
                 }
             }
         }

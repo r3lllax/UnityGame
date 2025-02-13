@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2e91004364c95824087d3419fc885652
+guid: 7d3ac8af8bfca7b48921337f34420b21
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8509550459451208454
-    second: water_0
+      213: 2191882863352785130
+    second: LootRoom_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: water_0
+      name: LootRoom_0
       rect:
         serializedVersion: 2
-        x: 275
-        y: 131
-        width: 650
-        height: 938
+        x: 0
+        y: 0
+        width: 1100
+        height: 1100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 603f9ddae0ff71670800000000000000
-      internalID: 8509550459451208454
+      spriteID: ae8a863e9d12b6e10800000000000000
+      internalID: 2191882863352785130
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      water_0: 8509550459451208454
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -17,6 +17,7 @@ public class ChangeScene : MonoBehaviour
         }
         PlayerDataManager.Instance.playerData.health = 25;
         PlayerDataManager.Instance.playerData.attackPower = 10;
+        PlayerDataManager.Instance.playerData.inventory.items.Clear();
         PlayerDataManager.Instance.playerData.AvalibleDoors = Doors;
         SaveLoadManager.Instance.inventory.items.Clear();
         PlayerDataManager.Instance.SavePlayerData();

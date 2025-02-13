@@ -13,6 +13,8 @@ public class playerController : MonoBehaviour
     }
     void Start()
     {
+
+
         //ПРосто тест, объявлять дефолтные данные не тут
             // List<int> Doors = new List<int>();
             // Doors.Add(2);
@@ -50,6 +52,8 @@ public class playerController : MonoBehaviour
 
         animator.SetFloat("horizontalMove",horizontalMove*-1);
         animator.SetFloat("verticalMove",verticalMove*1);
+
+        
     }
 
     private void FixedUpdate() {
