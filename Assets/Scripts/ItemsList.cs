@@ -47,6 +47,7 @@ public class ItemsList : MonoBehaviour
 
     void Start()
     {
+        //Рандомайзер данных
         random = new System.Random();
         int currentIndex = random.Next(0,Loot.Length);
         int currentType = random.Next(0,2);
@@ -56,18 +57,20 @@ public class ItemsList : MonoBehaviour
         ItemStrength = random.Next(0,100);
         ItemPicture = LootImages[currentIndex];
 
+
+        //Загрузка данных в форму
         Title.text = ItemName;
-        Type.text = "Тип:"+ItemType;
+        Type.text = "Тип силы:"+ (ItemType == "Damage"?"Урон":"Здоровье");
         Strength.text = "Количество очков:"+ItemStrength.ToString();
         Description.text = ItemDescription;
         LoadImage(ItemPicture,Image);
         
 
-        Debug.Log(ItemName);
-        Debug.Log(ItemType);
-        Debug.Log(ItemStrength);
-        Debug.Log(ItemDescription);
-        Debug.Log(ItemPicture);
+        // Debug.Log(ItemName);
+        // Debug.Log(ItemType);
+        // Debug.Log(ItemStrength);
+        // Debug.Log(ItemDescription);
+        // Debug.Log(ItemPicture);
     }
     public void LoadImage(string fileName, Image Image)
     {

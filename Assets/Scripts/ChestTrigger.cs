@@ -28,7 +28,6 @@ public class ChestTrigger : MonoBehaviour
             {
                 panelController.TogglePanel();
                 
-                Debug.Log("Вызвал тогл панель");
                 playerInTrigger = false;
                 
             }

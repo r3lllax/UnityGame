@@ -21,7 +21,7 @@ public class Inventory
     {
         foreach (var item in items)
         {
-            Debug.Log($"Item: {item.itemName}, Type: {item.Type}, Description: {item.Description}, Debuffs: {item.Debuffs}, ImagePath: {item.ImagePath}");
+            Debug.Log($"Item: {item.itemName}, Type: {item.Type},Strength: {item.Strength} Description: {item.Description}, Debuffs: {item.Debuffs}, ImagePath: {item.ImagePath}");
         }
     }
 }

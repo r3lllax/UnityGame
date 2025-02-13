@@ -31,7 +31,8 @@ public class playerController : MonoBehaviour
         // SaveLoadManager.Instance.inventory.AddItem(new Item("Stick",5,"Heal","Описание","Дебаф","Путь к картинке"));
         
         // Вывести инвентарь в консоль
-        // SaveLoadManager.Instance.inventory.PrintInventory();
+        Debug.Log("Инвентарь на текущий момент:");
+        SaveLoadManager.Instance.inventory.PrintInventory();
 
         // Сохранить инвентарь
             // Debug.Log(PlayerDataManager.Instance.playerData.health);
