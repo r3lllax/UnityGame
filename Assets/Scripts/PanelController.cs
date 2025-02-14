@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class PanelController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PanelController : MonoBehaviour
     private Vector2 targetPosition;
     public GameObject Trigger;
     public TextMeshProUGUI Text;
+    public Image Image;
     public int targetX;
     public int targetX2;
     public int targetY;
@@ -44,6 +46,17 @@ public class PanelController : MonoBehaviour
         }
         Debug.Log("togglePanel");
     }
+
+    public void showInventory(){
+        Debug.Log("Инвентарь: ");
+        foreach(var item in PlayerDataManager.Instance.playerData.inventory.items){
+            Debug.Log(item.itemName);
+            Debug.Log(item.Type);
+            Debug.Log(item.Strength);
+            Debug.Log(item.ImagePath);
+        }
+    }
+
     public void Accept(){
         if(itemsList.ItemType == "Damage"){
             PlayerDataManager.Instance.playerData.attackPower += itemsList.ItemStrength;
@@ -61,4 +74,33 @@ public class PanelController : MonoBehaviour
         Text.text = "Вы забрали предмет";
         Trigger.GetComponent<ChestTrigger>().enabled = false;
     }
+
+    public void LoadImage(string fileName, Image Image)
+    {
+        // Путь к изображению
+        string path = Path.Combine(Application.dataPath, "Images", fileName);
+
+        if (File.Exists(path))
+        {
+            // Загружаем данные изображения
+            byte[] imageData = File.ReadAllBytes(path);
+            Texture2D texture = new Texture2D(2, 2);
+            texture.LoadImage(imageData);
+
+            // Создаем спрайт из текстуры
+            Sprite newSprite = Sprite.Create(
+                texture,
+                new Rect(0, 0, texture.width, texture.height),
+                new Vector2(0.5f, 0.5f)
+            );
+
+            // Назначаем спрайт компоненту Image
+            Image.sprite = newSprite;
+        }
+        else
+        {
+            Debug.LogError("Изображение не найдено по пути: " + path);
+        }
+    }
+    
 }
