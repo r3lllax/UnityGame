@@ -4,7 +4,7 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     public float speed;
-    private Vector2 direction;
+
     private Rigidbody2D rb;
     public Animator animator;
     
@@ -45,8 +45,9 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direction.x = Input.GetAxisRaw("Horizontal");
-        direction.y = Input.GetAxisRaw("Vertical");
+
+        // direction.x = Input.GetAxisRaw("Horizontal");
+        // direction.y = Input.GetAxisRaw("Vertical");
 
         float horizontalMove = Input.GetAxisRaw("Horizontal");
         float verticalMove = Input.GetAxisRaw("Vertical");
@@ -58,6 +59,25 @@ public class playerController : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+        Vector2 direction = new Vector2(0,0);
+        if(Input.GetKey(KeyCode.W)){
+            direction.y = 1f;
+        }
+
+        if(Input.GetKey(KeyCode.S)){
+            direction.y = -1f;
+        }
+
+        if(Input.GetKey(KeyCode.A)){
+            direction.x = -1f;
+        }
+
+        if(Input.GetKey(KeyCode.D)){
+            direction.x = 1f;
+        }
+
+
+        direction.Normalize();
+        rb.MovePosition(rb.position + direction * (speed * Time.fixedDeltaTime));
     }
 }

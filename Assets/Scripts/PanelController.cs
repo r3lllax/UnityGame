@@ -73,6 +73,7 @@ public class PanelController : MonoBehaviour
         Trigger.GetComponent<ChestTrigger>().text.SetActive(false);
         Text.text = "Вы забрали предмет";
         Trigger.GetComponent<ChestTrigger>().enabled = false;
+        
     }
 
     public void LoadImage(string fileName, Image Image)

@@ -1,5 +1,6 @@
 using UnityEditor.SearchService;
 using UnityEngine;
+using TMPro;
 
 public class ChestTrigger : MonoBehaviour
 {
@@ -7,9 +8,19 @@ public class ChestTrigger : MonoBehaviour
     private bool playerInTrigger = false;
     public PanelController panelController; // Ссылка на PanelController
     public GameObject text;
+    public GameObject Trigger;
+    public TextMeshProUGUI Text;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-     private void OnTriggerEnter2D(Collider2D other)
+    void Start()
+    {
+        if(PlayerDataManager.Instance.playerData.inventory.items.Count ==4){
+            Text.text = "Ваш инвентарь полон";
+            Trigger.GetComponent<ChestTrigger>().enabled = false;
+        }
+
+    }
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.name == "player")
         {
