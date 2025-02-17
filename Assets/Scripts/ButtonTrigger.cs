@@ -33,7 +33,7 @@ public class ButtonTrigger : MonoBehaviour
         if (!DialogueSystem.Dialogue)
         {
             text.SetActive(true);
-            isTrigger = !isTrigger;
+            isTrigger = true;
         }
     }
 
@@ -125,6 +125,7 @@ public class ButtonTrigger : MonoBehaviour
 
         playerText.text = playerWins.ToString();
         enemyText.text = enemyWins.ToString();
+        Debug.Log(isTrigger);
         if (!isSpining && isTrigger && Input.GetKeyDown(KeyCode.E))
         {
             if (playerWins < 3 && enemyWins < 3)
@@ -155,6 +156,6 @@ public class ButtonTrigger : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         text.SetActive(false);
-        isTrigger = !isTrigger;
+        isTrigger = false;
     }
 }

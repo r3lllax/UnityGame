@@ -41,7 +41,7 @@ public class DialogueSystem : MonoBehaviour
         else{
              gameObject.SetActive(false);
              Dialogue = false;
-             ButtonTrigger.isTrigger = true;
+            //  ButtonTrigger.isTrigger = true;
              text.SetActive(true);
         }
     }
