@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bloody-knife_0: 8262255931789583536
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

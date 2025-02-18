@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      player_sprite_up-ezgif.com-resize_0: 4111350616941928774
+      player_sprite_up-ezgif.com-resize_1: -8299672270921472237
+      player_sprite_up-ezgif.com-resize_2: -9115987628178442176
+      player_sprite_up-ezgif.com-resize_3: -2962361305714248251
+      player_sprite_up-ezgif.com-resize_4: -148813295702855695
+      player_sprite_up-ezgif.com-resize_5: -8714945744140957789
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

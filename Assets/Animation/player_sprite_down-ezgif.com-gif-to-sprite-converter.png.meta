@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      player_sprite_down-ezgif.com-gif-to-sprite-converter_0: 1261767965267139408
+      player_sprite_down-ezgif.com-gif-to-sprite-converter_1: 7404261788180843001
+      player_sprite_down-ezgif.com-gif-to-sprite-converter_2: -8827960093059648712
+      player_sprite_down-ezgif.com-gif-to-sprite-converter_3: -5354853990405966114
+      player_sprite_down-ezgif.com-gif-to-sprite-converter_4: -1687305422941984957
+      player_sprite_down-ezgif.com-gif-to-sprite-converter_5: 4650524419708933789
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

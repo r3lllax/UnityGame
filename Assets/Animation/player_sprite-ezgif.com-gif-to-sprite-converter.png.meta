@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      player_sprite-ezgif.com-gif-to-sprite-converter_0: -8320788331790364688
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      stone-pixel-buttons-old-school-video-game-vector-51587999_0: -6206862542039068654
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

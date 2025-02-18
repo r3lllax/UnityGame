@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      monster3dying_0: 3627407004470333725
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
