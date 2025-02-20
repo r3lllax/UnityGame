@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour
 {
+
     public float speed;
     public static bool isFreezed = false;
 
@@ -22,9 +24,9 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        // direction.x = Input.GetAxisRaw("Horizontal");
-        // direction.y = Input.GetAxisRaw("Vertical");
+        if(PlayerDataManager.Instance.playerData.health <=0){
+            SceneManager.LoadScene(9);
+        }
 
         if (!isFreezed)
         {

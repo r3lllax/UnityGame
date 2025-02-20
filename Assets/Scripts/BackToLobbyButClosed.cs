@@ -43,7 +43,7 @@ public class BackToLobbyButClosed : MonoBehaviour
                 PlayerDataManager.Instance.playerData.inventory = SaveLoadManager.Instance.inventory;
                 PlayerDataManager.Instance.SavePlayerData();
                 //СЮДА ДОБАВЛЯТЬ ПЕРЕХОД НА СЦЕНУ
-
+                DoorIsOpen = false;
                 SceneManager.LoadScene(2);
                 
             }
