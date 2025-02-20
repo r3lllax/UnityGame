@@ -2,9 +2,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using Unity.VisualScripting;
 
 public class PanelController : MonoBehaviour
 {
+    
     public RectTransform panel;
     public ItemsList itemsList;
     public float slideSpeed = 5f;

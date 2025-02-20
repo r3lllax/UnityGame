@@ -7,7 +7,7 @@ public class LavaTrigger : MonoBehaviour
     private bool inLava = false;
     void Start()
     {
-        Dmg = PlayerDataManager.Instance.playerData.health/2;
+        Dmg = PlayerDataManager.Instance.playerData.health/4;
     }
     void OnTriggerEnter2D(Collider2D collision)
     {

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour
 {
-
+    public static string State ="Fire";
     public float speed;
     public static bool isFreezed = false;
 
@@ -24,9 +24,9 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PlayerDataManager.Instance.playerData.health <=0){
-            SceneManager.LoadScene(9);
-        }
+        // if(PlayerDataManager.Instance.playerData.health <=0){
+        //     SceneManager.LoadScene(9);
+        // }
 
         if (!isFreezed)
         {
@@ -36,37 +36,56 @@ public class playerController : MonoBehaviour
             animator.SetFloat("horizontalMove", horizontalMove * -1);
             animator.SetFloat("verticalMove", verticalMove * 1);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                State = InteractiveWall.States[0];
+                Debug.Log($"нажата 1, стойка:{State}");
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                State = InteractiveWall.States[1];
+                Debug.Log($"нажата 1, стойка:{State}");
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                State = InteractiveWall.States[2];
+                Debug.Log($"нажата 1, стойка:{State}");
+            }
+
 
 
     }
 
     private void FixedUpdate()
     {
-        if(!isFreezed){
+        if (!isFreezed)
+        {
             Vector2 direction = new Vector2(0, 0);
-        if (Input.GetKey(KeyCode.W))
-        {
-            direction.y = 1f;
-        }
+            if (Input.GetKey(KeyCode.W))
+            {
+                direction.y = 1f;
+            }
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            direction.y = -1f;
-        }
+            if (Input.GetKey(KeyCode.S))
+            {
+                direction.y = -1f;
+            }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            direction.x = -1f;
-        }
+            if (Input.GetKey(KeyCode.A))
+            {
+                direction.x = -1f;
+            }
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            direction.x = 1f;
-        }
+            if (Input.GetKey(KeyCode.D))
+            {
+                direction.x = 1f;
+            }
+            
 
 
-        direction.Normalize();
-        rb.MovePosition(rb.position + direction * (speed * Time.fixedDeltaTime));
+            direction.Normalize();
+            rb.MovePosition(rb.position + direction * (speed * Time.fixedDeltaTime));
         }
+    
     }
 }

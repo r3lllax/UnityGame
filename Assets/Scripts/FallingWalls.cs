@@ -5,7 +5,7 @@ using System.Linq;
 
 public class FallingWalls : MonoBehaviour
 {
-    private bool toMove = true;
+    public static bool toMove = false;
     private System.Random random = new System.Random();
     [SerializeField] private GameObject wallPrefab;
     [SerializeField] private GameObject InteractiveWallPrefab;
@@ -42,14 +42,11 @@ public class FallingWalls : MonoBehaviour
     void Start()
     {
         
-        GenerateFallingWalls();
+        // GenerateFallingWalls();
     }
 
 
-    void Update()
-    {
-    }
-
+    
     private void FixedUpdate() {
         if(toMove){
             MoveWall();
