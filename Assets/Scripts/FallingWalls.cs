@@ -39,11 +39,6 @@ public class FallingWalls : MonoBehaviour
         {"TenCell",Math.Round(4.49608373641968,5)}
     };
 
-    void Start()
-    {
-        
-        // GenerateFallingWalls();
-    }
 
 
     

@@ -15,7 +15,6 @@ public class StateController : MonoBehaviour
     void Update()
     {
         int index = Array.IndexOf(States,playerController.State);
-        Debug.Log(index);
         GetComponent<SpriteRenderer>().sprite = StatesImages[index];
     }
 }

@@ -19,6 +19,7 @@ public class InteractiveWall : MonoBehaviour
     
     void Start()
     {
+        Collider.enabled = true;
         int index = random.Next(0,States.Length);
         CurrentState = States[index];
         Visual.GetComponent<SpriteRenderer>().sprite = StatesImages[index];
@@ -32,9 +33,7 @@ public class InteractiveWall : MonoBehaviour
             if(playerController.State == CurrentState){
                 Collider.enabled = false;
             }
-            else{
-                Collider.enabled = true;
-            }
+            
         }
     }
 }

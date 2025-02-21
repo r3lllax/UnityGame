@@ -17,6 +17,10 @@ public class DialogueSystem : MonoBehaviour
     {
         dialogueText.text = string.Empty;
     }
+    void Start()
+    {
+        
+    }
     public void StartDialogue(){
         index = 0;
         NowIsADialogue = true;
@@ -42,7 +46,9 @@ public class DialogueSystem : MonoBehaviour
              gameObject.SetActive(false);
              Dialogue = false;
             //  ButtonTrigger.isTrigger = true;
-             text.SetActive(true);
+             if(text){
+                text.SetActive(true);
+             }
         }
     }
     private void Update()

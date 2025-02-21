@@ -1,14 +1,12 @@
 using UnityEngine;
 
-public class TriggerToStartFallingWalls : MonoBehaviour
+public class TriggerToCloseFallingWalls : MonoBehaviour
 {
     [SerializeField] private GameObject statesTint;
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
         if(collision.name == "player"){
-            FallingWalls.toMove = true;
-            statesTint.SetActive(true);
+            statesTint.SetActive(false);
         }
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 
 public class LavaTrigger : MonoBehaviour
@@ -30,7 +31,9 @@ public class LavaTrigger : MonoBehaviour
     private IEnumerator DamageOnLavaStay(){
         inLava = false;
         Debug.Log($"Игрок стоит в лаве, нанесено {Dmg} урона");
-        PlayerDataManager.Instance.playerData.health -=Dmg;
+        if(Minigame2.AttemptCount == 0){
+            PlayerDataManager.Instance.playerData.health -=Dmg;
+        }
         yield return new WaitForSeconds(1);
         inLava = true;
     }

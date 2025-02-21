@@ -33,6 +33,8 @@ public class PlatformScript : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        collision.GetComponent<playerController>().speed = 3;
+        if(collision.name == "player"){
+            collision.GetComponent<playerController>().speed = 3;
+        }
     }
 }

@@ -30,6 +30,9 @@ public class ButtonTrigger : MonoBehaviour
     private int Dmg;
     private void Awake()
     {
+        DialogueSystem.Dialogue = true;
+        DialogueSystem.NowIsADialogue = false;
+        
         animator = GetComponent<Animator>();
         random = new System.Random();
         enemySlashObj.GetComponent<SpriteRenderer>().enabled = false;
@@ -37,7 +40,8 @@ public class ButtonTrigger : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!DialogueSystem.Dialogue)
+        Debug.Log(!DialogueSystem.Dialogue);
+        if (DialogueSystem.Dialogue == false)
         {
             text.SetActive(true);
             isTrigger = true;
