@@ -7,6 +7,7 @@ public class TriggerToStartFallingWalls : MonoBehaviour
     {
         Debug.Log(collision.name);
         if(collision.name == "player"){
+            bookTrigger.ShowUI = false;
             FallingWalls.toMove = true;
             statesTint.SetActive(true);
         }

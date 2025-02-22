@@ -8,6 +8,7 @@ public class PlatformScript : MonoBehaviour
     private float slowedPlayerSpeed = 1.5f;
     public static string CurrentPlatform;
     [SerializeField] private GameObject TriggerParentPlatform;
+    public GameObject LavaBlockBelowPlatform;
     private double currentPos;
     private static float DefaultPlayerSpeed;
 

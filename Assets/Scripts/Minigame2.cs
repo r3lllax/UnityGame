@@ -19,4 +19,7 @@ public class Minigame2 : MonoBehaviour
             Minigame2.AttemptCount-=1;
         }
     }
+    public void setAttempsZero(){
+        AttemptCount = 0;
+    }
 }
