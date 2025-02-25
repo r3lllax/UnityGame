@@ -16,7 +16,6 @@ public class PlatformScript : MonoBehaviour
     {
         currentPos = TriggerParentPlatform.GetComponent<Transform>().position.x;
         currentPos = Math.Round(currentPos,5);
-        CurrentPlatform = "SecondCell";
     }
     void OnTriggerEnter2D(Collider2D collision)
     {

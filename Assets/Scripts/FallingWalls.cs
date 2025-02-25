@@ -5,7 +5,7 @@ using System.Linq;
 
 public class FallingWalls : MonoBehaviour
 {
-    public static bool toMove = false;
+    public static bool toMove;
     private System.Random random = new System.Random();
     [SerializeField] private GameObject wallPrefab;
     [SerializeField] private GameObject InteractiveWallPrefab;
@@ -23,6 +23,9 @@ public class FallingWalls : MonoBehaviour
     {
         StartY = 5.55;
         IntWallPlacement = "FirstCell";
+    }
+    private void Start() {
+        toMove = false;
     }
 
     public static Dictionary<string,double> intervals = new Dictionary<string,double >()

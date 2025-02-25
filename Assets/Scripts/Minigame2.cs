@@ -1,7 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 public class Minigame2 : MonoBehaviour
 {
+    public static bool Minigame2ChestOpened = false;
     public static int AttemptCount;
     [SerializeField] private GameObject Player;
 
@@ -13,11 +15,31 @@ public class Minigame2 : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
+
         Debug.Log($"тег колизии:{collision.name}");
         if(collision.name =="LavaTrigger"&& AttemptCount >0){
-            Player.GetComponent<Transform>().position = new Vector2(-6.41f,1f);
+            StartCoroutine(WhileAttemtAnim());
+            Player.GetComponent<playerController>().ReserveAttempt();
             Minigame2.AttemptCount-=1;
+            StartCoroutine(WhileAttemtAnim());
         }
+        else if(collision.name == "LavaTrigger" && AttemptCount <=0){
+            
+            Player.GetComponent<SpriteRenderer>().color = new Color32(255,99,71,255);
+        }
+        else if(collision.name == "PlatformTrigger"){
+            Player.GetComponent<SpriteRenderer>().color = new Color32(255,255,255,255);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other) {
+        
+    }
+    private IEnumerator WhileAttemtAnim(){
+        GetComponent<CircleCollider2D>().enabled = false;
+        Player.GetComponent<CircleCollider2D>().enabled = false;
+        yield return new WaitForSeconds(2f);
+        GetComponent<CircleCollider2D>().enabled = true;
+        Player.GetComponent<CircleCollider2D>().enabled = true;
     }
     public void setAttempsZero(){
         AttemptCount = 0;

@@ -7,6 +7,7 @@ public class TriggerToCloseFallingWalls : MonoBehaviour
     {
         if(collision.name == "player"){
             statesTint.SetActive(false);
+            collision.GetComponent<SpriteRenderer>().color = new Color32(255,255,255,255);
         }
     }
 }
