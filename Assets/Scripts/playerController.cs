@@ -23,14 +23,33 @@ public class playerController : MonoBehaviour
         Debug.Log("Инвентарь на текущий момент:");
         SaveLoadManager.Instance.inventory.PrintInventory();
         defaultscale = GetComponent<Transform>().localScale;
+        isFreezed = false;
     }
 
+
+
+    private IEnumerator loose(){
+        playerController.isFreezed = true;
+        GetComponent<Animator>().SetFloat("horizontalMove",0);
+        GetComponent<Animator>().SetFloat("verticalMove",0);
+        GetComponent<CircleCollider2D>().enabled = false;
+        for(int i =0;i<3;i++){
+            GetComponent<SpriteRenderer>().color = new Color32(255,255,255,150);
+            yield return new WaitForSeconds(0.2f);
+            GetComponent<SpriteRenderer>().color = new Color32(255,255,255,255);
+            yield return new WaitForSeconds(0.2f);
+        }
+        GetComponent<SpriteRenderer>().color = new Color32(255,255,255,0);
+        SceneManager.LoadScene(8);
+        playerController.isFreezed = false;
+    }
     
     void Update()
     {
-        // if(PlayerDataManager.Instance.playerData.health <=0){
-        //     SceneManager.LoadScene(9);
-        // }
+        
+        if(PlayerDataManager.Instance.playerData.health <=0){
+            StartCoroutine(loose());
+        }
 
         if (!isFreezed)
         {

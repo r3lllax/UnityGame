@@ -1,4 +1,4 @@
-using System;
+    using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,7 +27,7 @@ public class DoorTrigger : MonoBehaviour
         random = new System.Random();
 
         EventType = random.Next(0, 2); 
-        miniGameType = EventType == 0 ? 3 : random.Next(4, 9);
+        miniGameType = EventType == 0 ? 3 : random.Next(4, 8);
 
         Debug.Log($"Объект: {gameObject.name}, EventType: {EventType}, miniGameType: {miniGameType}");
     }

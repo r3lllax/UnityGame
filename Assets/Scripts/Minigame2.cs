@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Minigame2 : MonoBehaviour
 {
-    public static bool Minigame2ChestOpened = false;
+    public static bool Minigame2ChestOpened;
     public static int AttemptCount;
     [SerializeField] private GameObject Player;
 
@@ -12,6 +12,7 @@ public class Minigame2 : MonoBehaviour
     {
         AttemptCount = PlayerDataManager.Instance.playerData.health / 10;
         Debug.Log($"Количество попыток у игрока {AttemptCount}");
+        Minigame2ChestOpened = false;
     }
     void OnTriggerEnter2D(Collider2D collision)
     {

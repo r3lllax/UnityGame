@@ -118,7 +118,7 @@ public class ButtonTrigger : MonoBehaviour
                 Debug.Log("Урон больше здоровья");
                 PlayerDataManager.Instance.playerData.health = 0;
                 PlayerDataManager.Instance.SavePlayerData();
-                StartCoroutine(EndMiniGameByLoose());
+                StartCoroutine(EndMiniGameByLoose(Dmg));
                 //Включаем анимацию смерти игрока
                 
                 //Переходим на экран поражения
@@ -126,9 +126,8 @@ public class ButtonTrigger : MonoBehaviour
             }
             else{
                 Debug.Log($"Урон: {Dmg}");
-                PlayerDataManager.Instance.playerData.health -= Dmg;
-                PlayerDataManager.Instance.SavePlayerData();
-                StartCoroutine(EndMiniGameByLoose());
+                
+                StartCoroutine(EndMiniGameByLoose(Dmg));
             }
         
             
@@ -140,9 +139,9 @@ public class ButtonTrigger : MonoBehaviour
     }
 
     public void LooseBtn(){
-        StartCoroutine(EndMiniGameByLoose());
+        StartCoroutine(EndMiniGameByLoose(Dmg));
     }
-    private IEnumerator EndMiniGameByLoose(){
+    private IEnumerator EndMiniGameByLoose(int Dmg){
         //Отключаю возможность игрока ходить
         playerController.isFreezed = true;
 
@@ -207,6 +206,8 @@ public class ButtonTrigger : MonoBehaviour
         enemyObj.SetActive(false);
         Destroy(GetComponent<ButtonTrigger>());
         //Возвращаю контроль над игроком
+        PlayerDataManager.Instance.playerData.health -= Dmg;
+        PlayerDataManager.Instance.SavePlayerData();
         playerController.isFreezed = false;
     }
 
