@@ -12,6 +12,7 @@ public class startFightTrigger : MonoBehaviour
     [SerializeField] private float maxTime = 60f;
     private double timer;
     [SerializeField] private GameObject TimerText;
+    
     [SerializeField] private GameObject[] ButtonsToPress;
 
     public float CalculateTimer(int playerHP)
@@ -35,7 +36,13 @@ public class startFightTrigger : MonoBehaviour
             foreach(var obj in ButtonsToPress){
                 obj.SetActive(true);
             }
+            
         }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        Destroy(gameObject);
     }
 
     private IEnumerator Timer(){
@@ -44,9 +51,9 @@ public class startFightTrigger : MonoBehaviour
             timer-=1;
             TimerText.GetComponent<TextMeshProUGUI>().text =timer.ToString();
             if(timer ==0){
-                foreach(var obj in ButtonsToPress){
-                    Destroy(obj);
-                }
+                
+                StartCoroutine(ButtonsToPress[0].GetComponent<pressButtons>().WinnerText());
+                pressButtons.MGEnded = true;
                 if(pressButtons.EnemeyScore > pressButtons.PlayerScore){
                     Debug.Log("Противник победил");
                 }

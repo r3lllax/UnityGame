@@ -1,4 +1,5 @@
-    using System;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,23 +11,29 @@ public class DoorTrigger : MonoBehaviour
     public int EventType;
     public int miniGameType;
 
+
     private System.Random random;
 
     void Awake()
     {
-        if(PlayerDataManager.Instance.playerData.AvalibleDoors.Contains(doorNum)){
-            gameObject.SetActive(true);
-        }
-        else{
-            gameObject.SetActive(false);
-        }
+        
     }
 
     private void Start()
     {
-        random = new System.Random();
+        if (PlayerDataManager.Instance.playerData.AvalibleDoors.Contains(doorNum))
+        {
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+            return;
+        }
 
-        EventType = random.Next(0, 2); 
+
+        random = new System.Random();
+        EventType = random.Next(0, 2);
         miniGameType = EventType == 0 ? 3 : random.Next(4, 8);
 
         Debug.Log($"Объект: {gameObject.name}, EventType: {EventType}, miniGameType: {miniGameType}");
@@ -46,10 +53,11 @@ public class DoorTrigger : MonoBehaviour
     {
         if (playerInTrigger == true)
         {
-            
+
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if(PlayerDataManager.Instance.playerData.AvalibleDoors.Contains(doorNum)){
+                if (PlayerDataManager.Instance.playerData.AvalibleDoors.Contains(doorNum))
+                {
                     Debug.Log("Вход");
                     Debug.Log($"Тип ивента:{EventType}, номер мини-игры:{miniGameType}");
                     playerInTrigger = false;
@@ -58,9 +66,10 @@ public class DoorTrigger : MonoBehaviour
                     gameObject.SetActive(false);
 
                     //СЮДА ДОБАВЛЯТЬ ПЕРЕХОД НА СЦЕНУ
-                    
+
                     Debug.Log("Оставшиеся двери");
-                    for(int i =0 ;i<PlayerDataManager.Instance.playerData.AvalibleDoors.Count;i++){
+                    for (int i = 0; i < PlayerDataManager.Instance.playerData.AvalibleDoors.Count; i++)
+                    {
                         Debug.Log(PlayerDataManager.Instance.playerData.AvalibleDoors[i]);
                     }
                     SceneManager.LoadScene(miniGameType);

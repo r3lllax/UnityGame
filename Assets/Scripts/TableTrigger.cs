@@ -45,6 +45,8 @@ public class TableTrigger : MonoBehaviour
     {
         text.SetActive(false);
         isTrigger = false;
-        fightTrigger.SetActive(true);
+        if(fightTrigger != null){
+            fightTrigger.SetActive(true);
+        }
     }
 }

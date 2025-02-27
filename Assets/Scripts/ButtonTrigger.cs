@@ -180,6 +180,7 @@ public class ButtonTrigger : MonoBehaviour
 
         //Активирую анимацию атаки и пишу сколько урона нанесено
         enemySlashObj.GetComponent<Animator>().SetBool("EnemyAttacking",true);
+        DamageText.SetActive(true);
         DamageText.GetComponent<TextMeshProUGUI>().text = $"Вас атаковали и нанесли такое количество урона: {Dmg}";
         //Красным показывается что игрока атаковали, позже можно сделать нормальную анимацию(мигание красным как в майнкрафте и тряску игрока к примеру)
         playerObj.GetComponent<SpriteRenderer>().color = new Color32(222,169,169,255);
@@ -206,6 +207,7 @@ public class ButtonTrigger : MonoBehaviour
         enemyObj.SetActive(false);
         Destroy(GetComponent<ButtonTrigger>());
         //Возвращаю контроль над игроком
+        DamageText.SetActive(false);
         PlayerDataManager.Instance.playerData.health -= Dmg;
         PlayerDataManager.Instance.SavePlayerData();
         playerController.isFreezed = false;
